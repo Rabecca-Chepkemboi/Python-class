@@ -6,5 +6,4 @@ class Client(models.Model):
       name = models.CharField(max_length=50)
       phone_number = models.CharField(max_length=50)
       email = models.EmailField()
-    #   orders = models.ManyToManyField(Order)
       loyalty_points = models.IntegerField()
