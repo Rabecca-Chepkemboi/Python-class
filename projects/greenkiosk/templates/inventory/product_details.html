@@ -6,16 +6,12 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>Make your orders here</h1>
-    <form method="POST" class="create_form">
-        {%csrf_token%}
-        {{form.as_p}}    
-        <button type="submit">Save</button>
-    </form>
 
-
-
-    
+    <img src="{{product.image.url}}" alt="product image">
+    <h4>{{product.title}}</h4>
+    <p>{{product.description}}</p>
+    <span>{{product.price}}</span>
+    <button>Add to Cart</button>
     
 </body>
 </html>
