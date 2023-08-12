@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #F5F5F5;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        height: 100vh;
+    }        
+    .details {
+        background-color: #fff;
+        border-radius: 8px;
+        padding: 20px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }        
+    #title {
+        color: #0A0A0A;
+        margin-bottom: 10px;
+        font-size: 20px;
+        text-align: left;
+    }        
+    img {
+        max-width: 100%;
+        height: auto;
+        margin-bottom: 15px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }        
+    p {
+        color: #777;
+        margin-bottom: 15px;
+    }        
+    span {
+        font-weight: bold;
+        color: #3f0907;
+        display: block;
+        margin-bottom: 10px;
+    }        
+    #btn {
+        background-color: #76bbc0;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }        
+    #btn:hover {
+        background-color: #030303;
+    }
+</style>
+</head>
+
+<div class="details">
+    <h4 id="title">{{product.name}}</h4>
+    <img src="{{product.image.url}}"/>
+    <p>{{product.description}}</p>
+    <span>{{product.price}}</span>
+    <button id="btn">Add to cart</button>
+</div>
+    
+</html>
