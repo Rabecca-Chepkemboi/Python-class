@@ -52,6 +52,17 @@
         .heading{
             text-align: center;
         }
+        .btns{
+            padding-left: 14em;
+            padding: 5px 10px;
+            background-color: #484949;
+            color: #fff;
+            cursor: pointer;
+        }
+        .btns :hover{
+            background-color: rgb(206, 43, 43);
+        }
+        
     </style>
 </head>
 <body>
@@ -66,7 +77,15 @@
                 <h3>{{ product.name }}</h3>
                 <p>{{ product.description }}</p>
                 <p>Price: {{ product.price }}</p>
-                <a href="{% url 'product_detail_view' id=product.id %}">View Product</a>
+                <a href="{% url 'product_detail_view' id=product.id %}">View Product</a> 
+                <!-- <br/>
+                <br/> -->
+
+                 <a href="{% url 'edit_product_view' id=product.id %}" class="btn1">Edit Product</a>
+                 <br/>
+                 <br/>
+                 <a href="{% url 'product_delete' id=product.id %}" class="btns">Delete</a>
+
             </div>
         </div>
         {% endfor %}

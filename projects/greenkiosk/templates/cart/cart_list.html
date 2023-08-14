@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <h1>Shopping Cart</h1>
+    <ul >
+        {% for cart_item in cart_items %}
+        <li>
+            {% if cart_item.product_image %}
+            <img class="image" src="{{cart_item.product_image.url}}" alt="Image"/> <br>
+            {% else %}
+            No Image Available
+        {% endif %}
+               
+              Name: {{ cart_item.item_name }} <br>
+              Quantity: {{ cart_item.quantity}}  <br>
+              Price: ${{ cart_item.price }} <br>
+    </li>
+        {% endfor %}
+    </ul>
+
+</body>
+</html>

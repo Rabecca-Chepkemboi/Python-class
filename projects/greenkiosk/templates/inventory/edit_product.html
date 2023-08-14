@@ -7,11 +7,24 @@
 </head>
 <body>
 
+    <style>
+        .btn1{
+            padding-left: 14em;
+            padding: 5px 10px;
+            background-color: #484949;
+            color: #fff;
+            cursor: pointer;
+        }
+        .btn1 :hover{
+            background-color: rgb(33, 124, 21);
+        }
+    </style>
+
     <h2>Edit Product</h2>
    <form method="POST">
     {%csrf_token%}
     {{form.as_p}}
-    <button type="submit">Save</button>
+    <button class="btn1" type="submit">Save</button>
    </form>
     
 </body>

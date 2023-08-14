@@ -1,31 +1,36 @@
-from django.urls import path
-from . import views
-
-
-urlpatterns = [
-    path('cart/add_to_cart/<int:product_id>/', views.add_to_cart, name='add_to_cart'),
-    path('cart/', views.view_cart, name='view_cart'),
-]
-10:26
-from django.shortcuts import render, redirect
+from .forms import ProductCartForm
+from django.shortcuts import render, get_object_or_404, redirect
 from .models import Cart
-from inventory.models import Productdef add_to_cart(request, product_id):
-    product = Product.objects.get(id=product_id)
-    user = request.user
-    cart, created = Cart.objects.get_or_create(user=user)
-    cart.products.add(product)
-    return redirect('view_cart')
+# from .forms import CartFormdef product_upload_view(request):
+def product_upload_view(request):
+    form = ProductCartForm()    
+    return render(request,"cart/product_get.html",{"form": form})
 
-
-def view_cart(request):
-    user = request.user
-    cart_items = Cart.objects.filter(user=user).prefetch_related('products')    
-    total_price = sum(product.price * product.quantity for cart in cart_items for product in cart.products.all())    
-    print("Cart Items:", cart_items)
-    print("Total Price:", total_price)    
-    context = {
-        'cart_items': cart_items,
-        'total_price': total_price,
-    }
-    return render(request, 'cart/view_cart.html', context)
-
+    
+def add_to_cart(request):
+    if request.method == 'POST':
+        form = ProductCartForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('cart_list')
+    else:
+        form = ProductCartForm()
+    return render(request, 'cart/add_to_cart.html', {'form': form})
+    
+    
+def remove_cart_item(request, cart_item_id):
+    cart_item = get_object_or_404(Cart, pk=cart_item_id)
+    if request.method == 'POST':
+        form = ProductCartForm(request.POST, instance=cart_item)
+        if form.is_valid():
+            form.save()
+            return redirect('cart_list')
+    else:
+        form = ProductCartForm(instance=cart_item)
+    return render(request, 'cart/edit_cart_item.html', {'form': form, 'cart_item': cart_item})
+    
+    
+def cart_list(request):
+    cart_items = Cart.objects.all()
+    return render(request, 'cart/cart_list.html', {'cart_items': cart_items})    
+        

@@ -1,7 +1,6 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from inventory.models import Product
 from .forms import ProductUploadForm
-from django.shortcuts import redirect
 
 def product_upload_view(request):
     if request.method == "POST":
@@ -23,6 +22,28 @@ def product_detail_view(request,id):
     return render(request,"inventory/product_detail.html",{"product":product})
 
 
+
+
+def product_update_view(request,id):
+    product= Product.objects.get(id=id)
+    if request.method == "POST":
+        form = ProductUploadForm(request.POST,instance = product)
+        if form.is_valid():
+            form.save()
+        return redirect("product_detail_view",id=product.id)
+    else:
+        form = ProductUploadForm(instance=product)
+        return render(request,"inventory/edit_products.html",{"form":form})
+        
+
+def product_delete(request, id):
+    product = Product.objects.get(id=id)    
+    if request.method == "POST":
+        product.delete()
+        return redirect("products_list_view")    
+    return render(request,"inventory/confirmation_page.html", {"product": product})
+
+
 def edit_product_view(request,id):
     product = Product.objects.get(id = id)
     if request.method == "POST":
@@ -34,4 +55,21 @@ def edit_product_view(request,id):
     else:
         form = ProductUploadForm(instance=product)
     return render(request,"inventory/edit_product.html",{"form":form})
-  
+
+
+# def edit_product_view(request, id):
+#     product = Product.objects.get(id=id)
+#     if request.method == "POST":
+#         form = ProductUploadForm(request.POST, instance=product)
+#         if form.is_valid():
+#               form.save()
+#        return redirect('product_detail_view', id=product.id)
+#     else:
+#         form = ProductUploadForm(instance=product)
+#         return render(request, 'edit_product.html', {'form': form})
+
+
+# def delete_product(request,id):
+#     product = Product.objects.get(id = id)
+#     product.delete()
+#     return redirect("products_list_view")
