@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     'discount',
     'sales_record',
     'vendor',
+    'mamamboga',
 ]
 
 MIDDLEWARE = [

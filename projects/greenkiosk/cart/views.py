@@ -2,6 +2,7 @@ from .forms import ProductCartForm
 from django.shortcuts import render, get_object_or_404, redirect
 from .models import Cart
 # from .forms import CartFormdef product_upload_view(request):
+
 def product_upload_view(request):
     form = ProductCartForm()    
     return render(request,"cart/product_get.html",{"form": form})

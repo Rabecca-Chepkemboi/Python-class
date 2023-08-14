@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+{% load static %}
+    <link rel="stylesheet" href="{% static 'CSS/form.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@1,300&family=Open+Sans:wght@300;400&family=Tektur&display=swap" rel="stylesheet">
+</head>
+<body>
+    <h3 class="upload-heading">Payment Upload Form </h3>
+    <form action="" method="POST", class="upload-form" enctype="multipart/form-data">
+        {% csrf_token%} {{form.as_p}} 
+        <button type="submit">Save</button>
+    </form>
+
+</body>
+</html>
