@@ -14,7 +14,4 @@ urlpatterns=[
     path("product/detail<int:id>/",product_detail_view,name="product_detail_view"),
     path("product/edit/<int:id>/", edit_product_view, name="edit_product_view"),
     path("products/delete/<int:id>/",product_delete,name="product_delete"),
-
-    # path("product/update",product_update_view, name = "product_update_view"),
-
 ]

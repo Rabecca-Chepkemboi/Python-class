@@ -27,6 +27,9 @@ urlpatterns = [
     path("client/",include("client.urls"),),
     path("payment/",include("payment.urls"),),
     path("mamamboga/",include ("mamamboga.urls"),),
+    path("vendor/",include("vendor.urls"),),
+    path("shipping/",include("shipping.urls"),),
+    path("reviews/",include("reviews.urls"),),
 ]
 
 if settings.DEBUG:

@@ -35,3 +35,5 @@ def cart_list(request):
     cart_items = Cart.objects.all()
     return render(request, 'cart/cart_list.html', {'cart_items': cart_items})    
         
+
+

@@ -56,20 +56,3 @@ def edit_product_view(request,id):
         form = ProductUploadForm(instance=product)
     return render(request,"inventory/edit_product.html",{"form":form})
 
-
-# def edit_product_view(request, id):
-#     product = Product.objects.get(id=id)
-#     if request.method == "POST":
-#         form = ProductUploadForm(request.POST, instance=product)
-#         if form.is_valid():
-#               form.save()
-#        return redirect('product_detail_view', id=product.id)
-#     else:
-#         form = ProductUploadForm(instance=product)
-#         return render(request, 'edit_product.html', {'form': form})
-
-
-# def delete_product(request,id):
-#     product = Product.objects.get(id = id)
-#     product.delete()
-#     return redirect("products_list_view")

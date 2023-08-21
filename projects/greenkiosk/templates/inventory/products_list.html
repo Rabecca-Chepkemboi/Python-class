@@ -7,7 +7,7 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #927a7b;
+            background-color: #f79d9e;
             margin: 0;
             padding: 20px;
         }        
@@ -62,12 +62,25 @@
         .btns :hover{
             background-color: rgb(206, 43, 43);
         }
+        .search{
+            padding: 8px 10px;
+            cursor: pointer;
+        }
+        .prods{
+            padding: 8px 40px;
+        }
         
     </style>
 </head>
 <body>
-    <h2 class="heading">All Products</h2>
+    <h1 class="heading">All Products</h1>
+    <input type="text" name="query" placeholder="Search products..." class="prods">
+    <button type="submit" class="search">Search</button>
+
     <div class="item-container">
+        {% if query %}
+        <h2>Search Results for "{{ query }}"</h2>
+        {% endif %}
         {% for product in products %}
         <div class="item">
             <div class="item-image">
@@ -81,7 +94,7 @@
                 <!-- <br/>
                 <br/> -->
 
-                 <a href="{% url 'edit_product_view' id=product.id %}" class="btn1">Edit Product</a>
+                 <!-- <a href="{% url 'edit_product_view' id=product.id %}" class="btn1">Edit Product</a> -->
                  <br/>
                  <br/>
                  <a href="{% url 'product_delete' id=product.id %}" class="btns">Delete</a>

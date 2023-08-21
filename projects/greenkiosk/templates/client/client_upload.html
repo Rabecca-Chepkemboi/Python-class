@@ -9,11 +9,55 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@1,300&family=Open+Sans:wght@300;400&family=Tektur&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f79d9e;
+            /* text-align: center; */
+        }
+    
+        h1 {
+            text-align: center;
+            margin-top: 20px;
+        }
+    
+        .create_form {
+            width: 60%;
+            margin: 20px auto;
+            padding: 50px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+        .create_form input {
+        width: 30%;
+        padding: 10px;
+        margin-bottom: 10px;
+        border: 1px solid #807c7c;
+        border-radius: 4px;
+        }
+        .create_form button {
+            display: block;
+            margin-left: 18em;
+            padding: 10px 20px;
+            background-color: #262929;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .create_form button:hover {
+            background-color: #080808;
+        }
+    </style>
+
 </head>
 <body>
 
-    <h3 class="upload-heading">Client Upload Form </h3>
-    <form action="" method="POST", class="upload-form" enctype="multipart/form-data">
+    <h1 class="upload-heading">Client Upload Form </h1>
+    <form action="" method="POST", class="create_form" enctype="multipart/form-data">
         {% csrf_token%} {{form.as_p}} 
         <button type="submit">Save</button>
     </form>

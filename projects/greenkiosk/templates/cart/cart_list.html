@@ -4,10 +4,37 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+
+    <style>
+        li{
+            list-style: none;
+            display: grid;
+            grid-template-columns: repeat(4, 4fr);
+            border: solid 1px rgb(133, 130, 130);
+            width: 50%;
+            font-size: 1em;
+        }
+        h1{
+            margin-left: 15em;
+        }
+        ul{
+            padding-left: 10em;
+        }
+        .btnt{
+            padding: 8px 12px;
+            background-color: rgb(39, 37, 37);
+            color: white;
+        }
+        .btnt:hover{
+            background-color: black;
+        }
+        
+    </style>
+
 </head>
 <body>
 
-    <h1>Shopping Cart</h1>
+    <h1>My Shopping Cart</h1>
     <ul >
         {% for cart_item in cart_items %}
         <li>
@@ -16,13 +43,23 @@
             {% else %}
             No Image Available
         {% endif %}
+
+        <br/>
+        <br/>
+        <br/>
                
-              Name: {{ cart_item.item_name }} <br>
-              Quantity: {{ cart_item.quantity}}  <br>
-              Price: ${{ cart_item.price }} <br>
+             &nang;&nang;&nang;&nang; Name: {{ cart_item.item_name }} 
+              <br>
+              &nang;&nang;&nang;&nang;Quantity: {{ cart_item.quantity}}  
+              <br>
+             &nang;&nang;&nang;&nang; Price: ${{ cart_item.price }} 
+              <br>
     </li>
+    
         {% endfor %}
     </ul>
+    <a href="{% url 'payment_upload_view' %}"> <button class="btnt"> Checkout</button></a>
+
 
 </body>
 </html>
