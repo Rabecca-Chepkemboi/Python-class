@@ -30,6 +30,7 @@ urlpatterns = [
     path("vendor/",include("vendor.urls"),),
     path("shipping/",include("shipping.urls"),),
     path("reviews/",include("reviews.urls"),),
+    path("discount/",include("discount.urls"),),
 ]
 
 if settings.DEBUG:
