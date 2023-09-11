@@ -50,6 +50,7 @@ INSTALLED_APPS = [
     'sales_record',
     'vendor',
     'mamamboga',
+    'rest_framework',
 ]
 
 MIDDLEWARE = [

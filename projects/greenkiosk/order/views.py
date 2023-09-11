@@ -19,6 +19,3 @@ def upload_order(request):
         return render(request, "order/order_upload.html", {"form": form})
     
     
-
-
-

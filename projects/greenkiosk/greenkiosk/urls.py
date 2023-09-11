@@ -31,6 +31,7 @@ urlpatterns = [
     path("shipping/",include("shipping.urls"),),
     path("reviews/",include("reviews.urls"),),
     path("discount/",include("discount.urls"),),
+    path("api/",include("api.urls"),),
 ]
 
 if settings.DEBUG:
